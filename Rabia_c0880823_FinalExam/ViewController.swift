@@ -27,10 +27,50 @@ class ViewController: UIViewController {
     
     
     @IBAction func evenClicked(_ sender: Any) {
+        let infoAlert = UIAlertController(title: "Result", message: "", preferredStyle: .alert)
         let currentNumber = Float(randomNum.text!)
         if isEven(currentNumber!){
           print("even")
         }
+        else{
+            infoAlert.message = "Oops! Wrong Answer"
+            let newAction = UIAlertAction(title: "Play Again!", style: .cancel){_ in
+                print("ss")
+            }
+            infoAlert.addAction(newAction)
+            let newAction2 = UIAlertAction(title: "Show Progress", style: .default){_ in
+                print("ss")
+            }
+            infoAlert.addAction(newAction2)
+            self.showError(infoAlert)
+            return
+        }
+    }
+    
+    
+    
+    @IBAction func oddClicked(_ sender: Any) {
+        
+        let infoAlert = UIAlertController(title: "Result", message: "", preferredStyle: .alert)
+        let currentNumber = Float(randomNum.text!)
+        if isEven(currentNumber!){
+            infoAlert.message = "Oops! Wrong Answer"
+            let newAction = UIAlertAction(title: "Play Again!", style: .cancel){_ in
+                print("ss")
+            }
+            infoAlert.addAction(newAction)
+            let newAction2 = UIAlertAction(title: "Show Progress", style: .default){_ in
+                print("ss")
+            }
+            infoAlert.addAction(newAction2)
+            self.showError(infoAlert)
+            return
+          
+        }
+        else{
+            print("odd")
+        }
+        
     }
     
     
@@ -45,5 +85,12 @@ class ViewController: UIViewController {
         //RandomNumber.isHidden = false
     }
    
+    private func showError(_ alert: UIAlertController){
+        //let action = UIAlertAction(title: "Cancel", style: .destructive)
+        //alert.addAction(action)
+        present(alert, animated: true)
+        
+    }
+    
 }
 
