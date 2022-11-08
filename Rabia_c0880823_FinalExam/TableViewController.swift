@@ -11,19 +11,34 @@ class TableViewController: UIViewController{
     
     
 
-    var nameLabel: UILabel?
-    var iconImageView: UIImageView?
+    
     var tasks2: Array<String> = Array()
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(tasks2)
       
+
         // Do any additional setup after loading the view.
     }
     
   
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return self.tasks2.count 
+    }
 
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        cell?.textLabel?.text = tasks2[indexPath.row]
+        return cell!
+            
+      
+
+     
+    }
+    
             
        
 
