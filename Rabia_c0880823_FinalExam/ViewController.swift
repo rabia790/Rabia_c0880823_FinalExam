@@ -24,6 +24,20 @@ class ViewController: UIViewController {
         }
        
     }
+    
+    
+    @IBAction func evenClicked(_ sender: Any) {
+        let currentNumber = Float(randomNum.text!)
+        if isEven(currentNumber!){
+          print("even")
+        }
+    }
+    
+    
+    func isEven(_ f: Float) -> Bool {
+        f.truncatingRemainder(dividingBy: 2.0) == 0.0
+    }
+    
     private func setRandomvalue(){
         
         let randomInt = Int.random(in: 1..<100)
