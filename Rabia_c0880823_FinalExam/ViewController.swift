@@ -13,6 +13,10 @@ class ViewController: UIViewController {
     var timer: Timer?
     var count = 0
     
+    
+    var tasks:  Array<String> = Array()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.bnbbb
@@ -31,6 +35,8 @@ class ViewController: UIViewController {
         let currentNumber = Float(randomNum.text!)
         if isEven(currentNumber!){
           print("even")
+            self.tasks.append("\(currentNumber!) is Even")
+            
         }
         else{
             infoAlert.message = "Oops! Wrong Answer \n The Correct answer is Odd"
@@ -40,6 +46,7 @@ class ViewController: UIViewController {
             infoAlert.addAction(newAction)
             let newAction2 = UIAlertAction(title: "Show Progress", style: .default){_ in
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "TableViewController") as! TableViewController
+             
                 self.navigationController?.pushViewController(vc, animated: false)
             }
             infoAlert.addAction(newAction2)
@@ -61,7 +68,9 @@ class ViewController: UIViewController {
             }
             infoAlert.addAction(newAction)
             let newAction2 = UIAlertAction(title: "Show Progress", style: .default){_ in
-                print("ss")
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "TableViewController") as! TableViewController
+                self.navigationController?.pushViewController(vc, animated: false)
+                vc.tasks2 = self.tasks
             }
             infoAlert.addAction(newAction2)
             self.showError(infoAlert)
@@ -69,6 +78,8 @@ class ViewController: UIViewController {
           
         }
         else{
+            self.tasks.append("\(currentNumber!) is Odd")
+           
             print("odd")
         }
         
