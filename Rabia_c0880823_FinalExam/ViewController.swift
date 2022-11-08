@@ -33,13 +33,14 @@ class ViewController: UIViewController {
           print("even")
         }
         else{
-            infoAlert.message = "Oops! Wrong Answer"
+            infoAlert.message = "Oops! Wrong Answer \n The Correct answer is Odd"
             let newAction = UIAlertAction(title: "Play Again!", style: .cancel){_ in
                 print("ss")
             }
             infoAlert.addAction(newAction)
             let newAction2 = UIAlertAction(title: "Show Progress", style: .default){_ in
-                print("ss")
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "TableViewController") as! TableViewController
+                self.navigationController?.pushViewController(vc, animated: false)
             }
             infoAlert.addAction(newAction2)
             self.showError(infoAlert)
@@ -54,7 +55,7 @@ class ViewController: UIViewController {
         let infoAlert = UIAlertController(title: "Result", message: "", preferredStyle: .alert)
         let currentNumber = Float(randomNum.text!)
         if isEven(currentNumber!){
-            infoAlert.message = "Oops! Wrong Answer"
+            infoAlert.message = "Oops! Wrong Answer \n The Correct answer is Even"
             let newAction = UIAlertAction(title: "Play Again!", style: .cancel){_ in
                 print("ss")
             }
