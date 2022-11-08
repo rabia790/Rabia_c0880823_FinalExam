@@ -13,7 +13,8 @@ class TableViewController: UIViewController{
 
     
     var tasks2: Array<String> = Array()
-   
+    var iconImageView: UIImageView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
       
